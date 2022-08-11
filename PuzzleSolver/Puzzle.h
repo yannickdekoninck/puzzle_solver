@@ -2,8 +2,12 @@
 #include <vector>
 #include <string>
 
-class PieceView {
-public: 
+const char piece_symbol = 'a';
+const char empty_symbol = '0';
+
+class PieceView
+{
+public:
 	// Constructors / destructor
 	PieceView();
 	PieceView(int width, int height);
@@ -16,22 +20,24 @@ public:
 	// Variables
 	int width;
 	int height;
-	int** piece_description;
+	char **piece_description;
 
 private:
-	//Methods
+	// Methods
 	void free_piece_description();
 };
 
-class Piece {
+class Piece
+{
 public:
 	int id;
-	std::vector<PieceView*> piece_views;
+	std::vector<PieceView *> piece_views;
 };
 
-class Board {
+class Board
+{
 public:
-	int* width;
+	int *width;
 	int heigth;
-	int** board_content;
+	int **board_content;
 };
