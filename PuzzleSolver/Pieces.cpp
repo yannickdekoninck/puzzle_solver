@@ -14,6 +14,17 @@ Pieces::Pieces()
 	// Square piece
 	square.piece_views.push_back(&pv_square);
 
+	// cross piece views
+	pv_cross.initialize(3, 3);
+	pv_cross.piece_description[0][1] = piece_symbol;
+	pv_cross.piece_description[1][0] = piece_symbol;
+	pv_cross.piece_description[1][1] = piece_symbol;
+	pv_cross.piece_description[1][2] = piece_symbol;
+	pv_cross.piece_description[2][1] = piece_symbol;
+
+	// cross piece
+	cross.piece_views.push_back(&pv_cross);
+
 	// Line piece views
 	pv_line_1.initialize(1, 4);
 	pv_line_2.initialize(4, 1);

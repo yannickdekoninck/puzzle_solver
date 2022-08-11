@@ -7,6 +7,7 @@ public:
 	Pieces();
 
 	Piece square;
+	Piece cross;
 	Piece line;
 	Piece short_l;
 	Piece long_l;
@@ -17,6 +18,8 @@ public:
 private:
 	// Pieceviews
 	PieceView pv_square;
+	
+	PieceView pv_cross;
 
 	PieceView pv_line_1;
 	PieceView pv_line_2;
