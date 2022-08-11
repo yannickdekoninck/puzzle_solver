@@ -26,6 +26,50 @@ Pieces::Pieces()
 	line.piece_views.push_back(&pv_line_1);
 	line.piece_views.push_back(&pv_line_2);
 
+	// Small triangle
+	pv_small_triangle_1.initialize(2, 2);
+	pv_small_triangle_1.piece_description[0][0] = piece_symbol;
+	pv_small_triangle_1.piece_description[1][0] = piece_symbol;
+	pv_small_triangle_1.piece_description[1][1] = piece_symbol;
+
+	pv_small_triangle_2 = pv_small_triangle_1;
+	pv_small_triangle_2.mirror_x();
+
+	pv_small_triangle_3 = pv_small_triangle_1;
+	pv_small_triangle_3.mirror_y();
+
+	pv_small_triangle_4 = pv_small_triangle_1;
+	pv_small_triangle_4.mirror_x();
+	pv_small_triangle_4.mirror_y();
+
+	small_triangle.piece_views.push_back(&pv_small_triangle_1);
+	small_triangle.piece_views.push_back(&pv_small_triangle_2);
+	small_triangle.piece_views.push_back(&pv_small_triangle_3);
+	small_triangle.piece_views.push_back(&pv_small_triangle_4);
+
+	// Big triangle
+	pv_big_triangle_1.initialize(3, 3);
+	pv_big_triangle_1.piece_description[0][0] = piece_symbol;
+	pv_big_triangle_1.piece_description[1][0] = piece_symbol;
+	pv_big_triangle_1.piece_description[2][0] = piece_symbol;
+	pv_big_triangle_1.piece_description[2][1] = piece_symbol;
+	pv_big_triangle_1.piece_description[2][2] = piece_symbol;
+
+	pv_big_triangle_2 = pv_big_triangle_1;
+	pv_big_triangle_2.mirror_x();
+
+	pv_big_triangle_3 = pv_big_triangle_1;
+	pv_big_triangle_3.mirror_y();
+
+	pv_big_triangle_4 = pv_big_triangle_1;
+	pv_big_triangle_4.mirror_x();
+	pv_big_triangle_4.mirror_y();
+
+	big_triangle.piece_views.push_back(&pv_big_triangle_1);
+	big_triangle.piece_views.push_back(&pv_big_triangle_2);
+	big_triangle.piece_views.push_back(&pv_big_triangle_3);
+	big_triangle.piece_views.push_back(&pv_big_triangle_4);
+
 	// Short L view
 	pv_short_l_1.initialize(2, 3);
 	pv_short_l_1.piece_description[0][0] = piece_symbol;
