@@ -10,9 +10,35 @@ PieceView::PieceView(int width, int height)
 	initialize(width, height);
 }
 
+PieceView::PieceView(const PieceView &other)
+{
+	width = other.width;
+	height = other.height;
+	piece_description = nullptr;
+	if (other.piece_description == nullptr)
+	{
+		return;
+	}
+	initialize(width, height);
+	copy_piece_description(other);
+}
+
 PieceView::~PieceView()
 {
 	free_piece_description();
+}
+
+PieceView &PieceView::operator=(const PieceView &other)
+{
+	width = other.width;
+	height = other.height;
+	piece_description = nullptr;
+	if (other.piece_description != nullptr)
+	{
+		initialize(width, height);
+		copy_piece_description(other);
+	}
+	return *this;
 }
 
 void PieceView::initialize(int width, int height)
@@ -35,6 +61,38 @@ void PieceView::initialize(int width, int height)
 	}
 }
 
+void PieceView::mirror_x()
+{
+	if (piece_description == nullptr)
+	{
+		return;
+	}
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < (width / 2); j++)
+		{
+			// Flipping values
+			char temp = piece_description[i][j];
+			piece_description[i][j] = piece_description[i][width - 1 - j];
+			piece_description[i][width - 1 - j] = temp;
+		}
+	}
+}
+void PieceView::mirror_y()
+{
+	if (piece_description == nullptr)
+	{
+		return;
+	}
+	for (int i = 0; i < height / 2; i++)
+	{
+		// Flipping pointers
+		char *temp = piece_description[i];
+		piece_description[i] = piece_description[height - 1 - i];
+		piece_description[height - 1 - i] = temp;
+	}
+}
+
 std::string PieceView::to_string()
 {
 	if (piece_description == nullptr)
@@ -52,6 +110,23 @@ std::string PieceView::to_string()
 		out.append("\n");
 	}
 	return out;
+}
+
+void PieceView::copy_piece_description(const PieceView &other)
+{
+	// Check if piece description copy cannot be done
+	if ((other.width != width) || (other.height != height) || (other.piece_description == nullptr) || (piece_description == nullptr))
+	{
+		return;
+	}
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			// Copying values
+			piece_description[i][j] = other.piece_description[i][j];
+		}
+	}
 }
 
 void PieceView::free_piece_description()
