@@ -155,4 +155,48 @@ Pieces::Pieces()
 	long_l.piece_views.push_back(&pv_long_l_6);
 	long_l.piece_views.push_back(&pv_long_l_7);
 	long_l.piece_views.push_back(&pv_long_l_8);
+
+	// shifted L view
+	pv_shifted_l_1.initialize(2, 4);
+	pv_shifted_l_1.piece_description[0][0] = piece_symbol;
+	pv_shifted_l_1.piece_description[1][0] = piece_symbol;
+	pv_shifted_l_1.piece_description[2][0] = piece_symbol;
+	pv_shifted_l_1.piece_description[3][0] = piece_symbol;
+	pv_shifted_l_1.piece_description[2][1] = piece_symbol;
+
+	pv_shifted_l_2 = pv_shifted_l_1;
+	pv_shifted_l_2.mirror_x();
+
+	pv_shifted_l_3 = pv_shifted_l_1;
+	pv_shifted_l_3.mirror_y();
+
+	pv_shifted_l_4 = pv_shifted_l_1;
+	pv_shifted_l_4.mirror_x();
+	pv_shifted_l_4.mirror_y();
+
+	pv_shifted_l_5.initialize(4, 2);
+	pv_shifted_l_5.piece_description[0][0] = piece_symbol;
+	pv_shifted_l_5.piece_description[0][1] = piece_symbol;
+	pv_shifted_l_5.piece_description[0][2] = piece_symbol;
+	pv_shifted_l_5.piece_description[0][3] = piece_symbol;
+	pv_shifted_l_5.piece_description[1][2] = piece_symbol;
+
+	pv_shifted_l_6 = pv_shifted_l_5;
+	pv_shifted_l_6.mirror_x();
+
+	pv_shifted_l_7 = pv_shifted_l_5;
+	pv_shifted_l_7.mirror_y();
+
+	pv_shifted_l_8 = pv_shifted_l_5;
+	pv_shifted_l_8.mirror_x();
+	pv_shifted_l_8.mirror_y();
+
+	shifted_l.piece_views.push_back(&pv_shifted_l_1);
+	shifted_l.piece_views.push_back(&pv_shifted_l_2);
+	shifted_l.piece_views.push_back(&pv_shifted_l_3);
+	shifted_l.piece_views.push_back(&pv_shifted_l_4);
+	shifted_l.piece_views.push_back(&pv_shifted_l_5);
+	shifted_l.piece_views.push_back(&pv_shifted_l_6);
+	shifted_l.piece_views.push_back(&pv_shifted_l_7);
+	shifted_l.piece_views.push_back(&pv_shifted_l_8);
 }

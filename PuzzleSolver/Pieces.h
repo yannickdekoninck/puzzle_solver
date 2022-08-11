@@ -10,6 +10,7 @@ public:
 	Piece line;
 	Piece short_l;
 	Piece long_l;
+	Piece shifted_l;
 	Piece small_triangle;
 	Piece big_triangle;
 
@@ -47,4 +48,13 @@ private:
 	PieceView pv_long_l_6;
 	PieceView pv_long_l_7;
 	PieceView pv_long_l_8;
+
+	PieceView pv_shifted_l_1;
+	PieceView pv_shifted_l_2;
+	PieceView pv_shifted_l_3;
+	PieceView pv_shifted_l_4;
+	PieceView pv_shifted_l_5;
+	PieceView pv_shifted_l_6;
+	PieceView pv_shifted_l_7;
+	PieceView pv_shifted_l_8;
 };
