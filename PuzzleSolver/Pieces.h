@@ -9,6 +9,7 @@ public:
 	Piece square;
 	Piece line;
 	Piece short_l;
+	Piece long_l;
 
 private:
 	// Pieceviews
@@ -25,4 +26,13 @@ private:
 	PieceView pv_short_l_6;
 	PieceView pv_short_l_7;
 	PieceView pv_short_l_8;
+
+	PieceView pv_long_l_1;
+	PieceView pv_long_l_2;
+	PieceView pv_long_l_3;
+	PieceView pv_long_l_4;
+	PieceView pv_long_l_5;
+	PieceView pv_long_l_6;
+	PieceView pv_long_l_7;
+	PieceView pv_long_l_8;
 };
