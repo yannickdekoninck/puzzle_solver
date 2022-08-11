@@ -1,7 +1,5 @@
 #include "Puzzle.h"
 
-
-
 PieceView::PieceView() : width(0), height(0)
 {
 	piece_description = nullptr;
@@ -19,6 +17,8 @@ PieceView::~PieceView()
 
 void PieceView::initialize(int width, int height)
 {
+	this->width = width;
+	this->height = height;
 	if (piece_description != nullptr)
 	{
 		free_piece_description();
@@ -37,7 +37,21 @@ void PieceView::initialize(int width, int height)
 
 std::string PieceView::to_string()
 {
-	return std::string();
+	if (piece_description == nullptr)
+	{
+		// Return empty string if piece is not initialized
+		return std::string();
+	}
+	std::string out;
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			out.append(&(piece_description[i][j]), 1);
+		}
+		out.append("\n");
+	}
+	return out;
 }
 
 void PieceView::free_piece_description()
