@@ -4,19 +4,23 @@
 
 class PieceView {
 public: 
-	PieceView(int width, int height) : width(width), height(height) {
-		// Create an empty piece description
-		piece_description = new int* [height];
-		for (int i = 0; i < height; i++) {
-			piece_description[i] = new int[width];
-			for (int j = 0; j < width; j++) {
-				piece_description[i][j] = 0;
-			}
-		}
-	}
+	// Constructors / destructor
+	PieceView();
+	PieceView(int width, int height);
+	~PieceView();
+
+	// Methods
+	void initialize(int width, int height);
+	std::string to_string();
+
+	// Variables
 	int width;
 	int height;
 	int** piece_description;
+
+private:
+	//Methods
+	void free_piece_description();
 };
 
 class Piece {

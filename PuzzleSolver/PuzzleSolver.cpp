@@ -2,13 +2,15 @@
 //
 
 #include "PuzzleSolver.h"
-#include "Puzzle.h"
+#include "Pieces.h"
 using namespace std;
 
 int main()
 {
 
-	PieceView p(2, 2);
+	Pieces p;
+
 	cout << "Hello CMake." << endl;
+	cout << "Piece: " << p.line.piece_views[0]->piece_description[0][0] << endl;
 	return 0;
 }
