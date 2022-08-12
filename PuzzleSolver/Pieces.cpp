@@ -12,7 +12,7 @@ Pieces::Pieces()
 	pv_square.piece_description[1][1] = piece_symbol;
 
 	// Square piece
-	square.piece_views.push_back(&pv_square);
+	square.add_piece_view(&pv_square);
 
 	// cross piece views
 	pv_cross.initialize(3, 3);
@@ -23,7 +23,7 @@ Pieces::Pieces()
 	pv_cross.piece_description[2][1] = piece_symbol;
 
 	// cross piece
-	cross.piece_views.push_back(&pv_cross);
+	cross.add_piece_view(&pv_cross);
 
 	// Line piece views
 	pv_line_1.initialize(1, 4);
@@ -34,8 +34,8 @@ Pieces::Pieces()
 		pv_line_2.piece_description[0][i] = piece_symbol;
 	}
 	// Line
-	line.piece_views.push_back(&pv_line_1);
-	line.piece_views.push_back(&pv_line_2);
+	line.add_piece_view(&pv_line_1);
+	line.add_piece_view(&pv_line_2);
 
 	// Small triangle
 	pv_small_triangle_1.initialize(2, 2);
@@ -53,10 +53,10 @@ Pieces::Pieces()
 	pv_small_triangle_4.mirror_x();
 	pv_small_triangle_4.mirror_y();
 
-	small_triangle.piece_views.push_back(&pv_small_triangle_1);
-	small_triangle.piece_views.push_back(&pv_small_triangle_2);
-	small_triangle.piece_views.push_back(&pv_small_triangle_3);
-	small_triangle.piece_views.push_back(&pv_small_triangle_4);
+	small_triangle.add_piece_view(&pv_small_triangle_1);
+	small_triangle.add_piece_view(&pv_small_triangle_2);
+	small_triangle.add_piece_view(&pv_small_triangle_3);
+	small_triangle.add_piece_view(&pv_small_triangle_4);
 
 	// Big triangle
 	pv_big_triangle_1.initialize(3, 3);
@@ -76,10 +76,10 @@ Pieces::Pieces()
 	pv_big_triangle_4.mirror_x();
 	pv_big_triangle_4.mirror_y();
 
-	big_triangle.piece_views.push_back(&pv_big_triangle_1);
-	big_triangle.piece_views.push_back(&pv_big_triangle_2);
-	big_triangle.piece_views.push_back(&pv_big_triangle_3);
-	big_triangle.piece_views.push_back(&pv_big_triangle_4);
+	big_triangle.add_piece_view(&pv_big_triangle_1);
+	big_triangle.add_piece_view(&pv_big_triangle_2);
+	big_triangle.add_piece_view(&pv_big_triangle_3);
+	big_triangle.add_piece_view(&pv_big_triangle_4);
 
 	// Little B view
 	pv_little_b_1.initialize(2, 3);
@@ -116,14 +116,14 @@ Pieces::Pieces()
 	pv_little_b_8.mirror_x();
 	pv_little_b_8.mirror_y();
 
-	little_b.piece_views.push_back(&pv_little_b_1);
-	little_b.piece_views.push_back(&pv_little_b_2);
-	little_b.piece_views.push_back(&pv_little_b_3);
-	little_b.piece_views.push_back(&pv_little_b_4);
-	little_b.piece_views.push_back(&pv_little_b_5);
-	little_b.piece_views.push_back(&pv_little_b_6);
-	little_b.piece_views.push_back(&pv_little_b_7);
-	little_b.piece_views.push_back(&pv_little_b_8);
+	little_b.add_piece_view(&pv_little_b_1);
+	little_b.add_piece_view(&pv_little_b_2);
+	little_b.add_piece_view(&pv_little_b_3);
+	little_b.add_piece_view(&pv_little_b_4);
+	little_b.add_piece_view(&pv_little_b_5);
+	little_b.add_piece_view(&pv_little_b_6);
+	little_b.add_piece_view(&pv_little_b_7);
+	little_b.add_piece_view(&pv_little_b_8);
 
 	// Shifted B view
 	pv_shifted_b_1.initialize(2, 4);
@@ -160,14 +160,14 @@ Pieces::Pieces()
 	pv_shifted_b_8.mirror_x();
 	pv_shifted_b_8.mirror_y();
 
-	shifted_b.piece_views.push_back(&pv_shifted_b_1);
-	shifted_b.piece_views.push_back(&pv_shifted_b_2);
-	shifted_b.piece_views.push_back(&pv_shifted_b_3);
-	shifted_b.piece_views.push_back(&pv_shifted_b_4);
-	shifted_b.piece_views.push_back(&pv_shifted_b_5);
-	shifted_b.piece_views.push_back(&pv_shifted_b_6);
-	shifted_b.piece_views.push_back(&pv_shifted_b_7);
-	shifted_b.piece_views.push_back(&pv_shifted_b_8);
+	shifted_b.add_piece_view(&pv_shifted_b_1);
+	shifted_b.add_piece_view(&pv_shifted_b_2);
+	shifted_b.add_piece_view(&pv_shifted_b_3);
+	shifted_b.add_piece_view(&pv_shifted_b_4);
+	shifted_b.add_piece_view(&pv_shifted_b_5);
+	shifted_b.add_piece_view(&pv_shifted_b_6);
+	shifted_b.add_piece_view(&pv_shifted_b_7);
+	shifted_b.add_piece_view(&pv_shifted_b_8);
 
 	// Little u view
 	pv_little_u_1.initialize(2, 3);
@@ -192,10 +192,10 @@ Pieces::Pieces()
 	pv_little_u_4.mirror_x();
 	pv_little_u_4.mirror_y();
 
-	little_u.piece_views.push_back(&pv_little_u_1);
-	little_u.piece_views.push_back(&pv_little_u_2);
-	little_u.piece_views.push_back(&pv_little_u_3);
-	little_u.piece_views.push_back(&pv_little_u_4);
+	little_u.add_piece_view(&pv_little_u_1);
+	little_u.add_piece_view(&pv_little_u_2);
+	little_u.add_piece_view(&pv_little_u_3);
+	little_u.add_piece_view(&pv_little_u_4);
 
 	// Short L view
 	pv_short_l_1.initialize(2, 3);
@@ -230,14 +230,14 @@ Pieces::Pieces()
 	pv_short_l_8.mirror_x();
 	pv_short_l_8.mirror_y();
 
-	short_l.piece_views.push_back(&pv_short_l_1);
-	short_l.piece_views.push_back(&pv_short_l_2);
-	short_l.piece_views.push_back(&pv_short_l_3);
-	short_l.piece_views.push_back(&pv_short_l_4);
-	short_l.piece_views.push_back(&pv_short_l_5);
-	short_l.piece_views.push_back(&pv_short_l_6);
-	short_l.piece_views.push_back(&pv_short_l_7);
-	short_l.piece_views.push_back(&pv_short_l_8);
+	short_l.add_piece_view(&pv_short_l_1);
+	short_l.add_piece_view(&pv_short_l_2);
+	short_l.add_piece_view(&pv_short_l_3);
+	short_l.add_piece_view(&pv_short_l_4);
+	short_l.add_piece_view(&pv_short_l_5);
+	short_l.add_piece_view(&pv_short_l_6);
+	short_l.add_piece_view(&pv_short_l_7);
+	short_l.add_piece_view(&pv_short_l_8);
 
 	// Long L view
 	pv_long_l_1.initialize(2, 4);
@@ -274,14 +274,14 @@ Pieces::Pieces()
 	pv_long_l_8.mirror_x();
 	pv_long_l_8.mirror_y();
 
-	long_l.piece_views.push_back(&pv_long_l_1);
-	long_l.piece_views.push_back(&pv_long_l_2);
-	long_l.piece_views.push_back(&pv_long_l_3);
-	long_l.piece_views.push_back(&pv_long_l_4);
-	long_l.piece_views.push_back(&pv_long_l_5);
-	long_l.piece_views.push_back(&pv_long_l_6);
-	long_l.piece_views.push_back(&pv_long_l_7);
-	long_l.piece_views.push_back(&pv_long_l_8);
+	long_l.add_piece_view(&pv_long_l_1);
+	long_l.add_piece_view(&pv_long_l_2);
+	long_l.add_piece_view(&pv_long_l_3);
+	long_l.add_piece_view(&pv_long_l_4);
+	long_l.add_piece_view(&pv_long_l_5);
+	long_l.add_piece_view(&pv_long_l_6);
+	long_l.add_piece_view(&pv_long_l_7);
+	long_l.add_piece_view(&pv_long_l_8);
 
 	// shifted L view
 	pv_little_w_1.initialize(3, 3);
@@ -336,14 +336,14 @@ Pieces::Pieces()
 	pv_shifted_l_8.mirror_x();
 	pv_shifted_l_8.mirror_y();
 
-	shifted_l.piece_views.push_back(&pv_shifted_l_1);
-	shifted_l.piece_views.push_back(&pv_shifted_l_2);
-	shifted_l.piece_views.push_back(&pv_shifted_l_3);
-	shifted_l.piece_views.push_back(&pv_shifted_l_4);
-	shifted_l.piece_views.push_back(&pv_shifted_l_5);
-	shifted_l.piece_views.push_back(&pv_shifted_l_6);
-	shifted_l.piece_views.push_back(&pv_shifted_l_7);
-	shifted_l.piece_views.push_back(&pv_shifted_l_8);
+	shifted_l.add_piece_view(&pv_shifted_l_1);
+	shifted_l.add_piece_view(&pv_shifted_l_2);
+	shifted_l.add_piece_view(&pv_shifted_l_3);
+	shifted_l.add_piece_view(&pv_shifted_l_4);
+	shifted_l.add_piece_view(&pv_shifted_l_5);
+	shifted_l.add_piece_view(&pv_shifted_l_6);
+	shifted_l.add_piece_view(&pv_shifted_l_7);
+	shifted_l.add_piece_view(&pv_shifted_l_8);
 
 	// Add all pieces to all_pieces
 

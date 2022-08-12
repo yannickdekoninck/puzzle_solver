@@ -36,7 +36,12 @@ private:
 class Piece
 {
 public:
-	int id;
+	Piece() : id(piece_symbol){};
+	Piece(const char symbol) : id(symbol){};
+	char id;
+	void add_piece_view(PieceView *new_p);
+
+private:
 	std::vector<PieceView *> piece_views;
 };
 

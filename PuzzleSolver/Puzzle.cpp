@@ -140,3 +140,8 @@ void PieceView::free_piece_description()
 		delete[] piece_description;
 	}
 }
+
+void Piece::add_piece_view(PieceView *new_p)
+{
+	piece_views.push_back(new_p);
+}
