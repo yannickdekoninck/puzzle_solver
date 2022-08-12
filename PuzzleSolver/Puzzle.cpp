@@ -141,7 +141,7 @@ void PieceView::free_piece_description()
 	}
 }
 
-void Piece::add_piece_view(PieceView *new_p)
+void Piece::add_piece_view(const PieceView &new_p)
 {
-	piece_views.push_back(new_p);
+	piece_views.push_back((PieceView *)(&new_p));
 }
