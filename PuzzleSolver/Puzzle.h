@@ -20,10 +20,10 @@ public:
 	void initialize(int width, int height);
 	void mirror_x();
 	void mirror_y();
-	char get_description(int x, int y);
-	void set_description(int x, int y, char descr);
 	std::string to_string();
 
+	inline char get_description(int x, int y) { return piece_description[y][x]; }
+	inline void set_description(int x, int y, char descr) { piece_description[y][x] = descr; }
 	inline int get_width() { return width; }
 	inline int get_height() { return height; }
 

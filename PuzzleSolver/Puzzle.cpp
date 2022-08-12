@@ -93,16 +93,6 @@ void PieceView::mirror_y()
 	}
 }
 
-char PieceView::get_description(int x, int y)
-{
-	return piece_description[y][x];
-}
-
-void PieceView::set_description(int x, int y, char descr)
-{
-	piece_description[y][x] = descr;
-}
-
 std::string PieceView::to_string()
 {
 	if (piece_description == nullptr)
