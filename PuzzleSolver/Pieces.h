@@ -14,6 +14,7 @@ public:
 	Piece shifted_b;
 	Piece short_l;
 	Piece long_l;
+	Piece little_w;
 	Piece shifted_l;
 	Piece small_triangle;
 	Piece big_triangle;
@@ -41,6 +42,11 @@ private:
 	PieceView pv_little_u_2;
 	PieceView pv_little_u_3;
 	PieceView pv_little_u_4;
+
+	PieceView pv_little_w_1;
+	PieceView pv_little_w_2;
+	PieceView pv_little_w_3;
+	PieceView pv_little_w_4;
 
 	PieceView pv_short_l_1;
 	PieceView pv_short_l_2;
