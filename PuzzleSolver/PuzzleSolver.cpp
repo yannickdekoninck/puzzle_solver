@@ -10,17 +10,16 @@ int main()
 
 	Pieces p;
 
-	cout << "Hello CMake." << endl;
-	cout << "Line pieceview 0: " << endl
-		 << p.line.piece_views[0]->to_string() << endl;
-	cout << "Line pieceview 1: " << endl
-		 << p.line.piece_views[1]->to_string() << endl;
-	cout << "Square pieceview 0: " << endl
-		 << p.square.piece_views[0]->to_string() << endl;
-	for (int i = 0; i < 8; i++)
+	int number_of_pieces = (int)p.all_pieces.size();
+	for (int i = 0; i < number_of_pieces; i++)
 	{
-		cout << "Short L pieceview " << i << ":" << endl
-			 << p.short_l.piece_views[i]->to_string() << endl;
+		int number_of_views = (int)p.all_pieces[i]->piece_views.size();
+		std::cout << "Piece " << i << " has " << number_of_views << " views:" << std::endl;
+		for (int j = 0; j < number_of_views; j++)
+		{
+			std::cout << "-- View number " << j << std::endl;
+			std::cout << p.all_pieces[i]->piece_views[j]->to_string() << std::endl;
+		}
 	}
 	return 0;
 }

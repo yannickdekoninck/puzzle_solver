@@ -344,4 +344,19 @@ Pieces::Pieces()
 	shifted_l.piece_views.push_back(&pv_shifted_l_6);
 	shifted_l.piece_views.push_back(&pv_shifted_l_7);
 	shifted_l.piece_views.push_back(&pv_shifted_l_8);
+
+	// Add all pieces to all_pieces
+
+	all_pieces.push_back(&square);
+	all_pieces.push_back(&cross);
+	all_pieces.push_back(&line);
+	all_pieces.push_back(&little_u);
+	all_pieces.push_back(&little_b);
+	all_pieces.push_back(&little_w);
+	all_pieces.push_back(&shifted_b);
+	all_pieces.push_back(&short_l);
+	all_pieces.push_back(&long_l);
+	all_pieces.push_back(&shifted_l);
+	all_pieces.push_back(&small_triangle);
+	all_pieces.push_back(&big_triangle);
 }

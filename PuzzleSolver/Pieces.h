@@ -1,5 +1,6 @@
 #pragma once
 #include "Puzzle.h"
+#include <vector>
 
 class Pieces
 {
@@ -18,6 +19,8 @@ public:
 	Piece shifted_l;
 	Piece small_triangle;
 	Piece big_triangle;
+
+	std::vector<Piece *> all_pieces;
 
 private:
 	// Pieceviews
