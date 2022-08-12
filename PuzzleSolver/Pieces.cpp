@@ -169,6 +169,34 @@ Pieces::Pieces()
 	shifted_b.piece_views.push_back(&pv_shifted_b_7);
 	shifted_b.piece_views.push_back(&pv_shifted_b_8);
 
+	// Little u view
+	pv_little_u_1.initialize(2, 3);
+	pv_little_u_1.piece_description[0][0] = piece_symbol;
+	pv_little_u_1.piece_description[0][1] = piece_symbol;
+	pv_little_u_1.piece_description[1][0] = piece_symbol;
+	pv_little_u_1.piece_description[2][0] = piece_symbol;
+	pv_little_u_1.piece_description[2][1] = piece_symbol;
+
+	pv_little_u_2 = pv_little_u_1;
+	pv_little_u_2.mirror_x();
+	pv_little_u_2.mirror_y();
+
+	pv_little_u_3.initialize(3, 2);
+	pv_little_u_3.piece_description[0][0] = piece_symbol;
+	pv_little_u_3.piece_description[1][0] = piece_symbol;
+	pv_little_u_3.piece_description[0][1] = piece_symbol;
+	pv_little_u_3.piece_description[0][2] = piece_symbol;
+	pv_little_u_3.piece_description[1][2] = piece_symbol;
+
+	pv_little_u_4 = pv_little_u_3;
+	pv_little_u_4.mirror_x();
+	pv_little_u_4.mirror_y();
+
+	little_u.piece_views.push_back(&pv_little_u_1);
+	little_u.piece_views.push_back(&pv_little_u_2);
+	little_u.piece_views.push_back(&pv_little_u_3);
+	little_u.piece_views.push_back(&pv_little_u_4);
+	
 	// Short L view
 	pv_short_l_1.initialize(2, 3);
 	pv_short_l_1.piece_description[0][0] = piece_symbol;

@@ -9,6 +9,7 @@ public:
 	Piece square;
 	Piece cross;
 	Piece line;
+	Piece little_u;
 	Piece little_b;
 	Piece shifted_b;
 	Piece short_l;
@@ -35,6 +36,11 @@ private:
 	PieceView pv_big_triangle_2;
 	PieceView pv_big_triangle_3;
 	PieceView pv_big_triangle_4;
+
+	PieceView pv_little_u_1;
+	PieceView pv_little_u_2;
+	PieceView pv_little_u_3;
+	PieceView pv_little_u_4;
 
 	PieceView pv_short_l_1;
 	PieceView pv_short_l_2;
