@@ -93,6 +93,20 @@ void PieceView::mirror_y()
 	}
 }
 
+void PieceView::replace_symbol(const char new_symbol)
+{
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
+			if (get_description(i, j) != empty_symbol)
+			{
+				set_description(i, j, new_symbol);
+			}
+		}
+	}
+}
+
 std::string PieceView::to_string()
 {
 	if (piece_description == nullptr)
@@ -141,7 +155,9 @@ void PieceView::free_piece_description()
 	}
 }
 
-void Piece::add_piece_view(const PieceView &new_p)
+void Piece::add_piece_view(PieceView &new_p)
 {
 	piece_views.push_back((PieceView *)(&new_p));
+	// Set the symbol to the piece symbol
+	new_p.replace_symbol(id);
 }

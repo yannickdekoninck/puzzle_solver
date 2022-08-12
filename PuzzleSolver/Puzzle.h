@@ -22,6 +22,8 @@ public:
 	void mirror_y();
 	std::string to_string();
 
+	void replace_symbol(const char new_symbol);
+
 	inline char get_description(int x, int y) { return piece_description[y][x]; }
 	inline void set_description(int x, int y, char descr) { piece_description[y][x] = descr; }
 	inline int get_width() { return width; }
@@ -45,7 +47,7 @@ public:
 	Piece() : id(piece_symbol){};
 	Piece(const char symbol) : id(symbol){};
 	char id;
-	void add_piece_view(const PieceView &new_p);
+	void add_piece_view(PieceView &new_p);
 
 private:
 	std::vector<PieceView *> piece_views;

@@ -1,7 +1,18 @@
 #include "Puzzle.h"
 #include "Pieces.h"
 
-Pieces::Pieces()
+Pieces::Pieces() : square('A'),
+				   cross('B'),
+				   line('C'),
+				   little_u('D'),
+				   little_b('E'),
+				   shifted_b('F'),
+				   short_l('G'),
+				   long_l('H'),
+				   little_w('I'),
+				   shifted_l('J'),
+				   small_triangle('K'),
+				   big_triangle('L')
 {
 	// A Long list to initialize all the pieces and their pieceviews
 	// Square piece views
