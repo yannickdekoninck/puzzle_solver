@@ -20,12 +20,18 @@ public:
 	void initialize(int width, int height);
 	void mirror_x();
 	void mirror_y();
+	char get_description(int x, int y);
+	void set_description(int x, int y, char descr);
 	std::string to_string();
 
+	inline int get_width() { return width; }
+	inline int get_height() { return height; }
+
+private:
+	char **piece_description;
 	// Variables
 	int width;
 	int height;
-	char **piece_description;
 
 private:
 	// Methods
