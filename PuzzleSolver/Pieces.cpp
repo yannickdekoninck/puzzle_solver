@@ -81,7 +81,7 @@ Pieces::Pieces()
 	big_triangle.piece_views.push_back(&pv_big_triangle_3);
 	big_triangle.piece_views.push_back(&pv_big_triangle_4);
 
-	// Short L view
+	// Little B view
 	pv_little_b_1.initialize(2, 3);
 	pv_little_b_1.piece_description[0][0] = piece_symbol;
 	pv_little_b_1.piece_description[1][0] = piece_symbol;
@@ -124,6 +124,50 @@ Pieces::Pieces()
 	little_b.piece_views.push_back(&pv_little_b_6);
 	little_b.piece_views.push_back(&pv_little_b_7);
 	little_b.piece_views.push_back(&pv_little_b_8);
+
+	// Shifted B view
+	pv_shifted_b_1.initialize(2, 4);
+	pv_shifted_b_1.piece_description[0][0] = piece_symbol;
+	pv_shifted_b_1.piece_description[1][0] = piece_symbol;
+	pv_shifted_b_1.piece_description[2][0] = piece_symbol;
+	pv_shifted_b_1.piece_description[2][1] = piece_symbol;
+	pv_shifted_b_1.piece_description[3][1] = piece_symbol;
+
+	pv_shifted_b_2 = pv_shifted_b_1;
+	pv_shifted_b_2.mirror_x();
+
+	pv_shifted_b_3 = pv_shifted_b_1;
+	pv_shifted_b_3.mirror_y();
+
+	pv_shifted_b_4 = pv_shifted_b_1;
+	pv_shifted_b_4.mirror_x();
+	pv_shifted_b_4.mirror_y();
+
+	pv_shifted_b_5.initialize(4, 2);
+	pv_shifted_b_5.piece_description[0][0] = piece_symbol;
+	pv_shifted_b_5.piece_description[0][1] = piece_symbol;
+	pv_shifted_b_5.piece_description[0][2] = piece_symbol;
+	pv_shifted_b_5.piece_description[1][2] = piece_symbol;
+	pv_shifted_b_5.piece_description[1][3] = piece_symbol;
+
+	pv_shifted_b_6 = pv_shifted_b_5;
+	pv_shifted_b_6.mirror_x();
+
+	pv_shifted_b_7 = pv_shifted_b_5;
+	pv_shifted_b_7.mirror_y();
+
+	pv_shifted_b_8 = pv_shifted_b_5;
+	pv_shifted_b_8.mirror_x();
+	pv_shifted_b_8.mirror_y();
+
+	shifted_b.piece_views.push_back(&pv_shifted_b_1);
+	shifted_b.piece_views.push_back(&pv_shifted_b_2);
+	shifted_b.piece_views.push_back(&pv_shifted_b_3);
+	shifted_b.piece_views.push_back(&pv_shifted_b_4);
+	shifted_b.piece_views.push_back(&pv_shifted_b_5);
+	shifted_b.piece_views.push_back(&pv_shifted_b_6);
+	shifted_b.piece_views.push_back(&pv_shifted_b_7);
+	shifted_b.piece_views.push_back(&pv_shifted_b_8);
 
 	// Short L view
 	pv_short_l_1.initialize(2, 3);

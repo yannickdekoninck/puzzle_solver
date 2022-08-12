@@ -10,6 +10,7 @@ public:
 	Piece cross;
 	Piece line;
 	Piece little_b;
+	Piece shifted_b;
 	Piece short_l;
 	Piece long_l;
 	Piece shifted_l;
@@ -43,6 +44,16 @@ private:
 	PieceView pv_short_l_6;
 	PieceView pv_short_l_7;
 	PieceView pv_short_l_8;
+
+	PieceView pv_shifted_b_1;
+	PieceView pv_shifted_b_2;
+	PieceView pv_shifted_b_3;
+	PieceView pv_shifted_b_4;
+	PieceView pv_shifted_b_5;
+	PieceView pv_shifted_b_6;
+	PieceView pv_shifted_b_7;
+	PieceView pv_shifted_b_8;
+
 	PieceView pv_little_b_1;
 	PieceView pv_little_b_2;
 	PieceView pv_little_b_3;
