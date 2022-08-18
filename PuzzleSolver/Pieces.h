@@ -1,5 +1,5 @@
 #pragma once
-#include "Puzzle.h"
+#include "Piece.h"
 #include <vector>
 
 class Pieces

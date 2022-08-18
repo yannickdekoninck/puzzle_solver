@@ -1,4 +1,3 @@
-#include "Puzzle.h"
 #include "Pieces.h"
 
 Pieces::Pieces() : square('A'),
