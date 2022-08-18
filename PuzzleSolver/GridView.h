@@ -16,6 +16,7 @@ public:
     void mirror_x();
     void mirror_y();
     void mirror_diagonal();
+    bool equals(const GridView &other);
     std::string to_string();
 
     void replace_symbol(const char new_symbol);

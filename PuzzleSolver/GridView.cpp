@@ -137,6 +137,32 @@ void GridView::replace_symbol(const char new_symbol)
     }
 }
 
+bool GridView::equals(const GridView &other)
+{
+    // Check if dimensions match
+    if (width != other.width)
+    {
+        return false;
+    }
+    if (height != other.height)
+    {
+        return false;
+    }
+
+    for (int i = 0; i < width; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            if (get_description(i, j) != other.get_description(i, j))
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 std::string GridView::to_string()
 {
     if (piece_description == nullptr)
