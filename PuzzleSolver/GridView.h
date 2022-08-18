@@ -19,10 +19,10 @@ public:
 
     void replace_symbol(const char new_symbol);
 
-    inline char get_description(int x, int y) { return piece_description[y][x]; }
+    inline char get_description(int x, int y) const { return piece_description[y][x]; }
     inline void set_description(int x, int y, char descr) { piece_description[y][x] = descr; }
-    inline int get_width() { return width; }
-    inline int get_height() { return height; }
+    inline int get_width() const { return width; }
+    inline int get_height() const { return height; }
 
 private:
     char **piece_description;
