@@ -1,16 +1,16 @@
 #include "Puzzle.h"
 
-PieceView::PieceView() : width(0), height(0)
+GridView::GridView() : width(0), height(0)
 {
 	piece_description = nullptr;
 }
 
-PieceView::PieceView(int width, int height)
+GridView::GridView(int width, int height)
 {
 	initialize(width, height);
 }
 
-PieceView::PieceView(const PieceView &other)
+GridView::GridView(const GridView &other)
 {
 	width = other.width;
 	height = other.height;
@@ -23,12 +23,12 @@ PieceView::PieceView(const PieceView &other)
 	copy_piece_description(other);
 }
 
-PieceView::~PieceView()
+GridView::~GridView()
 {
 	free_piece_description();
 }
 
-PieceView &PieceView::operator=(const PieceView &other)
+GridView &GridView::operator=(const GridView &other)
 {
 	width = other.width;
 	height = other.height;
@@ -41,7 +41,7 @@ PieceView &PieceView::operator=(const PieceView &other)
 	return *this;
 }
 
-void PieceView::initialize(int width, int height)
+void GridView::initialize(int width, int height)
 {
 	this->width = width;
 	this->height = height;
@@ -61,7 +61,7 @@ void PieceView::initialize(int width, int height)
 	}
 }
 
-void PieceView::mirror_x()
+void GridView::mirror_x()
 {
 	if (piece_description == nullptr)
 	{
@@ -78,7 +78,7 @@ void PieceView::mirror_x()
 		}
 	}
 }
-void PieceView::mirror_y()
+void GridView::mirror_y()
 {
 	if (piece_description == nullptr)
 	{
@@ -93,7 +93,7 @@ void PieceView::mirror_y()
 	}
 }
 
-void PieceView::replace_symbol(const char new_symbol)
+void GridView::replace_symbol(const char new_symbol)
 {
 	for (int i = 0; i < width; i++)
 	{
@@ -107,7 +107,7 @@ void PieceView::replace_symbol(const char new_symbol)
 	}
 }
 
-std::string PieceView::to_string()
+std::string GridView::to_string()
 {
 	if (piece_description == nullptr)
 	{
@@ -126,7 +126,7 @@ std::string PieceView::to_string()
 	return out;
 }
 
-void PieceView::copy_piece_description(const PieceView &other)
+void GridView::copy_piece_description(const GridView &other)
 {
 	// Check if piece description copy cannot be done
 	if ((other.width != width) || (other.height != height) || (other.piece_description == nullptr) || (piece_description == nullptr))
@@ -143,7 +143,7 @@ void PieceView::copy_piece_description(const PieceView &other)
 	}
 }
 
-void PieceView::free_piece_description()
+void GridView::free_piece_description()
 {
 	if (piece_description != nullptr)
 	{
@@ -155,9 +155,9 @@ void PieceView::free_piece_description()
 	}
 }
 
-void Piece::add_piece_view(PieceView &new_p)
+void Piece::add_piece_view(GridView &new_p)
 {
-	piece_views.push_back((PieceView *)(&new_p));
+	piece_views.push_back((GridView *)(&new_p));
 	// Set the symbol to the piece symbol
 	new_p.replace_symbol(id);
 }

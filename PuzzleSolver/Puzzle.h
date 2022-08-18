@@ -5,16 +5,16 @@
 const char piece_symbol = 'a';
 const char empty_symbol = '0';
 
-class PieceView
+class GridView
 {
 public:
 	// Constructors / destructor
-	PieceView();
-	PieceView(const PieceView &other);
-	PieceView(int width, int height);
-	~PieceView();
+	GridView();
+	GridView(const GridView &other);
+	GridView(int width, int height);
+	~GridView();
 
-	PieceView &operator=(const PieceView &other);
+	GridView &operator=(const GridView &other);
 
 	// Methods
 	void initialize(int width, int height);
@@ -38,7 +38,7 @@ private:
 private:
 	// Methods
 	void free_piece_description();
-	void copy_piece_description(const PieceView &other);
+	void copy_piece_description(const GridView &other);
 };
 
 class Piece
@@ -47,10 +47,10 @@ public:
 	Piece() : id(piece_symbol){};
 	Piece(const char symbol) : id(symbol){};
 	char id;
-	void add_piece_view(PieceView &new_p);
+	void add_piece_view(GridView &new_p);
 
 private:
-	std::vector<PieceView *> piece_views;
+	std::vector<GridView *> piece_views;
 };
 
 class Board

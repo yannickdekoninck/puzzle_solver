@@ -24,75 +24,75 @@ public:
 
 private:
 	// Pieceviews
-	PieceView pv_square;
+	GridView pv_square;
 
-	PieceView pv_cross;
+	GridView pv_cross;
 
-	PieceView pv_line_1;
-	PieceView pv_line_2;
+	GridView pv_line_1;
+	GridView pv_line_2;
 
-	PieceView pv_small_triangle_1;
-	PieceView pv_small_triangle_2;
-	PieceView pv_small_triangle_3;
-	PieceView pv_small_triangle_4;
+	GridView pv_small_triangle_1;
+	GridView pv_small_triangle_2;
+	GridView pv_small_triangle_3;
+	GridView pv_small_triangle_4;
 
-	PieceView pv_big_triangle_1;
-	PieceView pv_big_triangle_2;
-	PieceView pv_big_triangle_3;
-	PieceView pv_big_triangle_4;
+	GridView pv_big_triangle_1;
+	GridView pv_big_triangle_2;
+	GridView pv_big_triangle_3;
+	GridView pv_big_triangle_4;
 
-	PieceView pv_little_u_1;
-	PieceView pv_little_u_2;
-	PieceView pv_little_u_3;
-	PieceView pv_little_u_4;
+	GridView pv_little_u_1;
+	GridView pv_little_u_2;
+	GridView pv_little_u_3;
+	GridView pv_little_u_4;
 
-	PieceView pv_little_w_1;
-	PieceView pv_little_w_2;
-	PieceView pv_little_w_3;
-	PieceView pv_little_w_4;
+	GridView pv_little_w_1;
+	GridView pv_little_w_2;
+	GridView pv_little_w_3;
+	GridView pv_little_w_4;
 
-	PieceView pv_short_l_1;
-	PieceView pv_short_l_2;
-	PieceView pv_short_l_3;
-	PieceView pv_short_l_4;
-	PieceView pv_short_l_5;
-	PieceView pv_short_l_6;
-	PieceView pv_short_l_7;
-	PieceView pv_short_l_8;
+	GridView pv_short_l_1;
+	GridView pv_short_l_2;
+	GridView pv_short_l_3;
+	GridView pv_short_l_4;
+	GridView pv_short_l_5;
+	GridView pv_short_l_6;
+	GridView pv_short_l_7;
+	GridView pv_short_l_8;
 
-	PieceView pv_shifted_b_1;
-	PieceView pv_shifted_b_2;
-	PieceView pv_shifted_b_3;
-	PieceView pv_shifted_b_4;
-	PieceView pv_shifted_b_5;
-	PieceView pv_shifted_b_6;
-	PieceView pv_shifted_b_7;
-	PieceView pv_shifted_b_8;
+	GridView pv_shifted_b_1;
+	GridView pv_shifted_b_2;
+	GridView pv_shifted_b_3;
+	GridView pv_shifted_b_4;
+	GridView pv_shifted_b_5;
+	GridView pv_shifted_b_6;
+	GridView pv_shifted_b_7;
+	GridView pv_shifted_b_8;
 
-	PieceView pv_little_b_1;
-	PieceView pv_little_b_2;
-	PieceView pv_little_b_3;
-	PieceView pv_little_b_4;
-	PieceView pv_little_b_5;
-	PieceView pv_little_b_6;
-	PieceView pv_little_b_7;
-	PieceView pv_little_b_8;
+	GridView pv_little_b_1;
+	GridView pv_little_b_2;
+	GridView pv_little_b_3;
+	GridView pv_little_b_4;
+	GridView pv_little_b_5;
+	GridView pv_little_b_6;
+	GridView pv_little_b_7;
+	GridView pv_little_b_8;
 
-	PieceView pv_long_l_1;
-	PieceView pv_long_l_2;
-	PieceView pv_long_l_3;
-	PieceView pv_long_l_4;
-	PieceView pv_long_l_5;
-	PieceView pv_long_l_6;
-	PieceView pv_long_l_7;
-	PieceView pv_long_l_8;
+	GridView pv_long_l_1;
+	GridView pv_long_l_2;
+	GridView pv_long_l_3;
+	GridView pv_long_l_4;
+	GridView pv_long_l_5;
+	GridView pv_long_l_6;
+	GridView pv_long_l_7;
+	GridView pv_long_l_8;
 
-	PieceView pv_shifted_l_1;
-	PieceView pv_shifted_l_2;
-	PieceView pv_shifted_l_3;
-	PieceView pv_shifted_l_4;
-	PieceView pv_shifted_l_5;
-	PieceView pv_shifted_l_6;
-	PieceView pv_shifted_l_7;
-	PieceView pv_shifted_l_8;
+	GridView pv_shifted_l_1;
+	GridView pv_shifted_l_2;
+	GridView pv_shifted_l_3;
+	GridView pv_shifted_l_4;
+	GridView pv_shifted_l_5;
+	GridView pv_shifted_l_6;
+	GridView pv_shifted_l_7;
+	GridView pv_shifted_l_8;
 };
