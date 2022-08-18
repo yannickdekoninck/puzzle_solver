@@ -15,6 +15,7 @@ public:
     void initialize(int width, int height);
     void mirror_x();
     void mirror_y();
+    void mirror_diagonal();
     std::string to_string();
 
     void replace_symbol(const char new_symbol);
@@ -33,5 +34,6 @@ private:
 private:
     // Methods
     void free_piece_description();
+    void free_piece_description(char **piece_description);
     void copy_piece_description(const GridView &other);
 };

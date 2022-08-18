@@ -94,6 +94,35 @@ void GridView::mirror_y()
     }
 }
 
+void GridView::mirror_diagonal()
+{
+    if (piece_description == nullptr)
+    {
+        return;
+    }
+
+    // This requires a new piece description
+
+    char **old_piece_description = piece_description;
+    piece_description = nullptr;
+
+    int new_width = height;
+    int new_heigth = width;
+
+    initialize(new_width, new_heigth);
+
+    for (int i = 0; i < new_width; i++)
+    {
+        for (int j = 0; j < new_heigth; j++)
+        {
+            set_description(i, j, old_piece_description[i][j]);
+        }
+    }
+
+    // Freeing old description
+    free_piece_description(old_piece_description);
+}
+
 void GridView::replace_symbol(const char new_symbol)
 {
     for (int i = 0; i < width; i++)
@@ -145,6 +174,10 @@ void GridView::copy_piece_description(const GridView &other)
 }
 
 void GridView::free_piece_description()
+{
+    free_piece_description(piece_description);
+}
+void GridView::free_piece_description(char **piece_description)
 {
     if (piece_description != nullptr)
     {
