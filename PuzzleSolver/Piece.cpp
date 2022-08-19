@@ -69,4 +69,10 @@ Piece::Piece(const char symbol, const GridView &grid_view) : id(symbol)
     gv_diag.mirror_diagonal();
 
     add_mirror_variant_pieceviews(gv_diag);
+
+    // Set the correct symbol
+    for (int i = 0; i < number_of_views(); i++)
+    {
+        get_view(i)->grid_view.replace_symbol(symbol);
+    }
 }

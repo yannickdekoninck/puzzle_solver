@@ -16,7 +16,7 @@ int main()
 	pv_little_b_1.set_description(2, 0, piece_symbol);
 	pv_little_b_1.set_description(2, 1, piece_symbol);
 
-	Piece little_b(pv_little_b_1);
+	Piece little_b('F', pv_little_b_1);
 
 	PieceView *pv = little_b.get_view(6);
 	std::cout << pv->grid_view.to_string() << std::endl;
