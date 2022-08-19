@@ -16,6 +16,8 @@ int main()
 	}
 
 	Board b(11, 5);
+	b.put_piece(*p.cross.get_view(0), 1, 1);
+	b.put_piece(*p.square.get_view(0), 5, 1);
 
 	std::cout << b.to_string() << std::endl;
 
