@@ -60,7 +60,11 @@ void Piece::add_mirror_variant_pieceviews(const GridView &grid_view)
 // Main piece constructor
 Piece::Piece(const char symbol, const GridView &grid_view) : id(symbol)
 {
+    initialize_with_grid_view(grid_view);
+}
 
+void Piece::initialize_with_grid_view(const GridView &grid_view)
+{
     // Try x/y/xy mirror variants
     add_mirror_variant_pieceviews(grid_view);
 
@@ -73,6 +77,6 @@ Piece::Piece(const char symbol, const GridView &grid_view) : id(symbol)
     // Set the correct symbol
     for (int i = 0; i < number_of_views(); i++)
     {
-        get_view(i)->grid_view.replace_symbol(symbol);
+        get_view(i)->grid_view.replace_symbol(id);
     }
 }

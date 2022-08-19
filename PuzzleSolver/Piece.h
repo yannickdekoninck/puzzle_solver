@@ -14,12 +14,16 @@ struct PieceView
 class Piece
 {
 public:
+    Piece() : Piece(piece_symbol){}
+    Piece(const char symbol);
     Piece(const GridView &grid_view) : Piece(piece_symbol, grid_view){};
     Piece(const char symbol, const GridView &grid_view);
-    char id;
+
+    void initialize_with_grid_view(const GridView &grid_view);
 
     inline size_t number_of_views() const { return piece_views.size(); }
     inline PieceView *get_view(int id) const { return (PieceView *)&(piece_views[id]); }
+    char id;
 
 private:
     std::vector<PieceView> piece_views;
