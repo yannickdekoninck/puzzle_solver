@@ -3,6 +3,7 @@
 
 #include "PuzzleSolver.h"
 #include "Pieces.h"
+#include "Board.h"
 using namespace std;
 
 int main()
@@ -13,6 +14,10 @@ int main()
 	{
 		std::cout << "Number of views: " << p.all_pieces[i]->number_of_views() << std::endl;
 	}
+
+	Board b(11, 5);
+
+	std::cout << b.to_string() << std::endl;
 
 	std::cout << "Done!" << std::endl;
 
