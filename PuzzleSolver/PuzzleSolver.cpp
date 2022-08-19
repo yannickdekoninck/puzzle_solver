@@ -18,7 +18,7 @@ int main()
 
 	Piece little_b(pv_little_b_1);
 
-	PieceView *pv = little_b.get_view(0);
+	PieceView *pv = little_b.get_view(6);
 	std::cout << pv->grid_view.to_string() << std::endl;
 
 	std::cout << " Done!" << std::endl;

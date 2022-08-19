@@ -119,8 +119,8 @@ void GridView::mirror_diagonal()
         }
     }
 
-    // Freeing old description
-    free_piece_description(old_piece_description);
+    // Freeing old description with old height (= current width)
+    free_piece_description(old_piece_description, width);
 }
 
 void GridView::replace_symbol(const char new_symbol)
@@ -201,9 +201,9 @@ void GridView::copy_piece_description(const GridView &other)
 
 void GridView::free_piece_description()
 {
-    free_piece_description(piece_description);
+    free_piece_description(piece_description, height);
 }
-void GridView::free_piece_description(char **piece_description)
+void GridView::free_piece_description(char **piece_description, int height)
 {
     if (piece_description != nullptr)
     {

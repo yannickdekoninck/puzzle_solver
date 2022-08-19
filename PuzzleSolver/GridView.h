@@ -36,6 +36,6 @@ private:
 private:
     // Methods
     void free_piece_description();
-    void free_piece_description(char **piece_description);
+    void free_piece_description(char **piece_description, int height);
     void copy_piece_description(const GridView &other);
 };

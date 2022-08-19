@@ -24,4 +24,6 @@ public:
 private:
     std::vector<PieceView> piece_views;
     void add_piece_view_based_on_grid_view(const GridView &grid_view);
+    void add_mirror_variant_pieceviews(const GridView &grid_view);
+    bool check_if_grid_view_exists(const GridView &grid_view);
 };
