@@ -2,15 +2,26 @@
 //
 
 #include "PuzzleSolver.h"
-#include "Pieces.h"
+#include "Piece.h"
 using namespace std;
 
 int main()
 {
+	GridView pv_little_b_1;
 
-	Pieces p;
+	pv_little_b_1.initialize(3, 2);
+	pv_little_b_1.set_description(0, 0, piece_symbol);
+	pv_little_b_1.set_description(1, 0, piece_symbol);
+	pv_little_b_1.set_description(1, 1, piece_symbol);
+	pv_little_b_1.set_description(2, 0, piece_symbol);
+	pv_little_b_1.set_description(2, 1, piece_symbol);
 
-	int number_of_pieces = (int)p.all_pieces.size();
+	Piece little_b(pv_little_b_1);
+
+	PieceView *pv = little_b.get_view(0);
+	std::cout << pv->grid_view.to_string() << std::endl;
+
+	std::cout << " Done!" << std::endl;
 
 	return 0;
 }
