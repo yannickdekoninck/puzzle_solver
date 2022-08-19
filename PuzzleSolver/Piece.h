@@ -14,8 +14,8 @@ struct PieceView
 class Piece
 {
 public:
-    Piece() : Piece(piece_symbol){}
-    Piece(const char symbol);
+    Piece() : Piece(piece_symbol) {}
+    Piece(const char symbol) : id(symbol){}
     Piece(const GridView &grid_view) : Piece(piece_symbol, grid_view){};
     Piece(const char symbol, const GridView &grid_view);
 
