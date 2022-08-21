@@ -25,7 +25,7 @@ void print_board(const GridView &grid_view)
 {
     // color mapping for the different pieces
     std::map<char, int> color_map{
-        {'A', 2}, {'B', 7}, {'C', 9}, {'D', 6}, {'E', 12}, {'F', 10}, {'G', 4}, {'H', 9}, {'I', 13}, {'J', 5}, {'K', 7}, {'L', 3}, {'0', 0}};
+        {'A', 2}, {'B', 7}, {'C', 9}, {'D', 6}, {'E', 12}, {'F', 10}, {'G', 4}, {'H', 9}, {'I', 13}, {'J', 5}, {'K', 7}, {'L', 3}, {empty_symbol, 0}};
 
     const char border_symbol = '+';
 
