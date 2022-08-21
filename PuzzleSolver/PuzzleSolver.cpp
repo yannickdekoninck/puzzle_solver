@@ -4,6 +4,8 @@
 #include "PuzzleSolver.h"
 #include "Pieces.h"
 #include "Board.h"
+#include <windows.h>
+#include "Utilities.h"
 using namespace std;
 
 int main()
@@ -19,7 +21,8 @@ int main()
 	b.put_piece(*p.cross.get_view(0), 1, 1);
 	b.put_piece(*p.square.get_view(0), 5, 1);
 
-	std::cout << b.to_string() << std::endl;
+	print_board(b);
+
 
 	std::cout << "Done!" << std::endl;
 
