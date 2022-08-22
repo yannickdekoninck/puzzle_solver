@@ -24,11 +24,18 @@ int main()
 		}
 	}
 
-	Board b(11, 5);
+	Board b(11, 5, p.all_pieces);
 	b.put_piece(*p.long_l.get_view(6), 0, 0);
 	b.put_piece(*p.small_triangle.get_view(2), 0, 3);
 	b.put_piece(*p.short_l.get_view(3), 1, 1);
 
+	p.long_l.placed = true;
+	p.small_triangle.placed = true;
+	p.short_l.placed = true;
+
+	print_board(b);
+
+	b.solve();
 	print_board(b);
 
 	std::cout << "Done!" << std::endl;

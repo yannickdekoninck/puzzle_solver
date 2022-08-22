@@ -58,7 +58,7 @@ void Piece::add_mirror_variant_pieceviews(const GridView &grid_view)
 }
 
 // Main piece constructor
-Piece::Piece(const char symbol, const GridView &grid_view) : id(symbol)
+Piece::Piece(const char symbol, const GridView &grid_view) : id(symbol), placed(false)
 {
     initialize_with_grid_view(grid_view);
 }
