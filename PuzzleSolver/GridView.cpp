@@ -8,6 +8,7 @@ GridView::GridView() : width(0), height(0)
 
 GridView::GridView(int width, int height)
 {
+    piece_description = nullptr;
     initialize(width, height);
 }
 
@@ -176,6 +177,7 @@ std::string GridView::to_string()
         for (int j = 0; j < width; j++)
         {
             out.append(&(piece_description[i][j]), 1);
+            out.append(" ");
         }
         out.append("\n");
     }

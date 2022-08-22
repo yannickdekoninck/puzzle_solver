@@ -78,5 +78,6 @@ void Piece::initialize_with_grid_view(const GridView &grid_view)
     for (int i = 0; i < number_of_views(); i++)
     {
         get_view(i)->grid_view.replace_symbol(id);
+        get_view(i)->list_view.replace_symbol(id);
     }
 }

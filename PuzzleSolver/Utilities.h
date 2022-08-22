@@ -4,3 +4,5 @@
 #include "ListView.h"
 
 void grid_view_to_list_view(const GridView &grid_view, ListView &list_view);
+
+void print_board(const GridView &grid_view);

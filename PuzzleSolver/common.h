@@ -1,4 +1,4 @@
 #pragma once
 
 const char piece_symbol = 'a';
-const char empty_symbol = '0';
+const char empty_symbol = '~';
