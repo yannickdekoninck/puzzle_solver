@@ -5,10 +5,16 @@
 #include "ListView.h"
 
 // A pieceview has a grid and list view
-struct PieceView
+class PieceView
 {
+public:
     GridView grid_view;
     ListView list_view;
+
+    void calculate_neighbours();
+
+private:
+    std::vector<Coord2> neighbours[8];
 };
 
 class Piece
