@@ -22,8 +22,8 @@ public:
 
     void replace_symbol(const char new_symbol);
 
-    inline char get_description(int x, int y) const { return piece_description[y][x]; }
-    inline void set_description(int x, int y, char descr) { piece_description[y][x] = descr; }
+    char get_description(int x, int y) const;
+    void set_description(int x, int y, char descr);
     inline int get_width() const { return width; }
     inline int get_height() const { return height; }
 

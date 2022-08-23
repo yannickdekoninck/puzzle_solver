@@ -63,6 +63,23 @@ void GridView::initialize(int width, int height)
     }
 }
 
+char GridView::get_description(int x, int y) const
+{
+    if ((x < 0) || (y < 0) || (x >= get_width()) || (y >= get_height()))
+    {
+        return border_symbol;
+    }
+    return piece_description[y][x];
+}
+void GridView::set_description(int x, int y, char descr)
+{
+    if ((x < 0) || (y < 0) || (x >= get_width()) || (y >= get_height()))
+    {
+        return;
+    }
+    piece_description[y][x] = descr;
+}
+
 void GridView::mirror_x()
 {
     if (piece_description == nullptr)

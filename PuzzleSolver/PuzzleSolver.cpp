@@ -34,7 +34,7 @@ int main()
 	p.short_l.placed = true;
 
 	print_board(b);
-
+	b.update_open_neighbours();
 	b.solve();
 	print_board(b);
 

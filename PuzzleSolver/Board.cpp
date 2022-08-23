@@ -24,6 +24,49 @@ bool Board::put_piece(const PieceView &piece_view, int x, int y)
     return true;
 }
 
+void Board::update_open_neighbours()
+{
+    update_open_neighbours(0, get_width() - 1, 0, get_height() - 1);
+}
+
+void Board::update_open_neighbours(int xmin, int xmax, int ymin, int ymax)
+{
+    lowest_open_neighbour_count = 9;
+    for (int i = xmin; i <= xmax; i++)
+    {
+        for (int j = ymin; j <= ymax; j++)
+        {
+            char current_symbol = get_description(i, j);
+            if (current_symbol <= empty_symbol)
+            {
+                int empty_neighbour_count = 0;
+                for (int k = -1; k <= 1; k++)
+                {
+                    for (int l = -1; l <= 1; l++)
+                    {
+                        if ((l == 0) && (k == 0))
+                        {
+                            // Don't check the symbol itself
+                            continue;
+                        }
+                        if (get_description(i + k, j + l) <= empty_symbol)
+                        {
+                            // This is an empty spot
+                            empty_neighbour_count++;
+                        }
+                    }
+                }
+                if (empty_neighbour_count < lowest_open_neighbour_count)
+                {
+                    lowest_open_neighbour_count = empty_neighbour_count;
+                    lowest_open_neighbour_location = Coord2{i, j};
+                }
+                set_description(i, j, empty_neighbour_count);
+            }
+        }
+    }
+}
+
 bool Board::solve()
 {
     // Step 1 find the most difficult position to place
