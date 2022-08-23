@@ -13,8 +13,9 @@ public:
 
     void calculate_neighbours();
 
-private:
     std::vector<Coord2> neighbours[8];
+
+private:
 };
 
 class Piece

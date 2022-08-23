@@ -36,6 +36,7 @@ int main()
 	print_board(b);
 	b.update_open_neighbours();
 	b.solve();
+	std::cout << b.tries << std::endl;
 	print_board(b);
 
 	std::cout << "Done!" << std::endl;

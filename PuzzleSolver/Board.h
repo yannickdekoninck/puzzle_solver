@@ -16,6 +16,8 @@ public:
 
     bool solve();
 
+    static int tries;
+
 private:
     std::vector<Piece *> pieces;
     int lowest_open_neighbour_count;

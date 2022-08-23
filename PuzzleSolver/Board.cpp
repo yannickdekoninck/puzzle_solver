@@ -1,5 +1,6 @@
 #include "common.h"
 #include "Board.h"
+#include "Utilities.h"
 
 bool Board::put_piece(const PieceView &piece_view, int x, int y)
 {
@@ -9,7 +10,7 @@ bool Board::put_piece(const PieceView &piece_view, int x, int y)
     for (int i = 0; i < piece_view.list_view.item_count(); i++)
     {
         li = piece_view.list_view.get_item(i);
-        if (get_description(x + li.coords.x, y + li.coords.y) != empty_symbol)
+        if (get_description(x + li.coords.x, y + li.coords.y) > empty_symbol)
         {
             return false;
         }
@@ -91,19 +92,71 @@ void Board::update_open_neighbours(int xmin, int xmax, int ymin, int ymax)
     }
 }
 
+int Board::tries = 0;
+
 bool Board::solve()
 {
-    // Step 1 find the most difficult position to place
+    tries++;
+    // Loop through all pieces
+    for (int i = 0; i < pieces.size(); i++)
+    {
+        Piece &p = *pieces[i];
+        // Check if piece is already placed
+        if (p.placed)
+        {
+            continue;
+        }
+        // Loop over the different views
+        for (int j = 0; j < p.number_of_views(); j++)
+        {
+            PieceView &pv = *p.get_view(j);
+            // Loop over the placements that would work for this # of meighbours
+            for (int k = lowest_open_neighbour_count; k > 0; k--)
+            {
 
-    // Step 2 loop through the pieces that can sattisfy this placement
+                for (int l = 0; l < pv.neighbours[k].size(); l++)
+                {
+                    Coord2 offset = pv.neighbours[k][l];
+                    Coord2 placement{lowest_open_neighbour_location.x - offset.x, lowest_open_neighbour_location.y - offset.y};
+                    if (put_piece(pv, placement.x, placement.y))
+                    {
+                        // We were able to place the piece
+                        p.placed = true;
+                        update_open_neighbours();
 
-    // Step 2.1 loop through the piece views of the selected piece
+                        // Check if all pieces are placed
 
-    // Step 2.2 try to place every piece view
+                        bool all_placed = true;
+                        for (int m = 0; m < pieces.size(); m++)
+                        {
+                            if (pieces[m]->placed == false)
+                            {
+                                all_placed = false;
+                                break;
+                            }
+                        }
+                        if (all_placed)
+                        {
+                            return true;
+                        }
 
-    // Step 2.3 if piece view fits -> recursively solve again but this piece removed from the list
+                        // print_board(*this);
+                        //  Check if we can solve the board
+                        if (solve())
+                        {
+                            return true;
+                        }
+                        // We couldn't solve the board with this placement
+                        // Romve the pieceview again
+                        remove_piece(pv, placement.x, placement.y);
+                        p.placed = false;
+                        // Make sure the open neighbours are consistent again
+                        update_open_neighbours();
+                    }
+                }
+            }
+        }
+    }
 
-    // How to keep track of which pieces can still be used and which ones can't?
-
-    return true;
+    return false;
 }
