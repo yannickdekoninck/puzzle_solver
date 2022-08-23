@@ -24,6 +24,30 @@ bool Board::put_piece(const PieceView &piece_view, int x, int y)
     return true;
 }
 
+void Board::remove_piece(const PieceView &piece_view, int x, int y)
+{
+
+    // Check if item can be removed
+    ListItem li;
+    for (int i = 0; i < piece_view.list_view.item_count(); i++)
+    {
+        li = piece_view.list_view.get_item(i);
+        if (get_description(x + li.coords.x, y + li.coords.y) != li.symbol)
+        {
+            // This is not a valid remove operation
+            return;
+        }
+    }
+
+    // Remove items
+    for (int i = 0; i < piece_view.list_view.item_count(); i++)
+    {
+        li = piece_view.list_view.get_item(i);
+        set_description(x + li.coords.x, y + li.coords.y, empty_symbol);
+    }
+    return;
+}
+
 void Board::update_open_neighbours()
 {
     update_open_neighbours(0, get_width() - 1, 0, get_height() - 1);

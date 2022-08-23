@@ -9,6 +9,7 @@ public:
     Board(int width, int height, std::vector<Piece *> &pieces) : GridView(width, height), pieces(pieces), lowest_open_neighbour_count(9) {}
 
     bool put_piece(const PieceView &piece_view, int x, int y);
+    void remove_piece(const PieceView &piece_view, int x, int y);
 
     void update_open_neighbours();
     void update_open_neighbours(int xmin, int xmax, int ymin, int ymax);
