@@ -6,6 +6,7 @@
 #include "Board.h"
 #include <windows.h>
 #include "Utilities.h"
+#include <chrono>
 using namespace std;
 
 int main()
@@ -33,10 +34,18 @@ int main()
 	p.small_triangle.placed = true;
 	p.short_l.placed = true;
 
+	std::cout << "Input sequence: " << std::endl;
 	print_board(b);
 	b.update_open_neighbours();
+	auto start = std::chrono::high_resolution_clock::now();
 	b.solve();
-	std::cout << b.tries << std::endl;
+	auto end = std::chrono::high_resolution_clock::now();
+	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "Solved puzzle in " << duration.count() << "ms using " << b.tries << " iterations" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Solution: " << std::endl;
 	print_board(b);
 
 	std::cout << "Done!" << std::endl;

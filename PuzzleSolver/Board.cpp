@@ -140,7 +140,6 @@ bool Board::solve()
                             return true;
                         }
 
-                        // print_board(*this);
                         //  Check if we can solve the board
                         if (solve())
                         {
