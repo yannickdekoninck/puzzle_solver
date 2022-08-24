@@ -1,5 +1,30 @@
+#include <cmath>
 #include "Piece.h"
 #include "Utilities.h"
+
+void PieceView::calculate_neighbours()
+{
+    ListItem current_li;
+    ListItem test_li;
+    for (int i = 0; i < list_view.item_count(); i++)
+    {
+        int neighbour_count = 0;
+        current_li = list_view.get_item(i);
+        for (int j = 0; j < list_view.item_count(); j++)
+        {
+            if (i != j)
+            {
+                test_li = list_view.get_item(j);
+                if ((abs(test_li.coords.x - current_li.coords.x) < 2) & (abs(test_li.coords.y - current_li.coords.y) < 2))
+                {
+                    neighbour_count++;
+                }
+            }
+        }
+
+        neighbours[neighbour_count].push_back(current_li.coords);
+    }
+}
 
 void Piece::add_piece_view_based_on_grid_view(const GridView &grid_view)
 {
@@ -9,6 +34,7 @@ void Piece::add_piece_view_based_on_grid_view(const GridView &grid_view)
     grid_view_to_list_view(grid_view, lv);
     pv.grid_view = grid_view;
     pv.list_view = lv;
+    pv.calculate_neighbours();
     piece_views.push_back(pv);
 }
 
@@ -58,7 +84,7 @@ void Piece::add_mirror_variant_pieceviews(const GridView &grid_view)
 }
 
 // Main piece constructor
-Piece::Piece(const char symbol, const GridView &grid_view) : id(symbol)
+Piece::Piece(const char symbol, const GridView &grid_view) : id(symbol), placed(false)
 {
     initialize_with_grid_view(grid_view);
 }

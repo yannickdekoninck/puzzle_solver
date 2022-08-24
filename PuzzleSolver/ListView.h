@@ -1,11 +1,17 @@
 #pragma once
 #include <vector>
 #include "common.h"
-struct ListItem
+
+struct Coord2
 {
     int x, y;
+};
+
+struct ListItem
+{
+    Coord2 coords;
     char symbol;
-    ListItem(int x, int y, char symbol) : x(x), y(y), symbol(symbol) {}
+    ListItem(int x, int y, char symbol) : coords{x, y}, symbol(symbol) {}
     ListItem() : ListItem(0, 0, empty_symbol) {}
 };
 

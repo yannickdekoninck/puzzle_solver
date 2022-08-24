@@ -27,8 +27,6 @@ void print_board(const GridView &grid_view)
     std::map<char, int> color_map{
         {'A', 2}, {'B', 7}, {'C', 9}, {'D', 6}, {'E', 12}, {'F', 10}, {'G', 4}, {'H', 9}, {'I', 13}, {'J', 5}, {'K', 7}, {'L', 3}, {empty_symbol, 0}};
 
-    const char border_symbol = '+';
-
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -52,7 +50,16 @@ void print_board(const GridView &grid_view)
         for (int i = 0; i < width; i++)
         {
             char current_symbol = grid_view.get_description(i, j);
-            int color = color_map[current_symbol];
+            char current_symbol_color = current_symbol;
+            if (current_symbol <= empty_symbol)
+            {
+                current_symbol_color = empty_symbol;
+            }
+            if (current_symbol < 10)
+            {
+                current_symbol += '0';
+            }
+            int color = color_map[current_symbol_color];
             SetConsoleTextAttribute(hConsole, color);
             std::cout << current_symbol << " ";
         }
