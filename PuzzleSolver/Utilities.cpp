@@ -73,3 +73,27 @@ void print_board(const GridView &grid_view)
     }
     std::cout << std::endl;
 }
+
+/*
+    load_board_from_file
+
+    Load a board from file defined by path in filename
+    Returns nullptr if board could not be loaded
+    Caller is responsible for freeing created Board
+
+*/
+
+Board *load_board_from_file(const char *filename)
+{
+    // Load file to string
+
+    // Get rid of spaces and newlines
+
+    // Check if the length makes sense
+
+    // Load the char* into a new board
+
+    // Return the board
+
+    return nullptr;
+}

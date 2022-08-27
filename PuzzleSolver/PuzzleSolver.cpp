@@ -49,6 +49,13 @@ int main(int argc, char **argv)
 			print_usage();
 			return 0;
 		}
+		// Load file
+		bp = load_board_from_file(argv[2]);
+		if (bp == nullptr)
+		{
+			print_usage();
+			return 0;
+		}
 	}
 	else
 	{
