@@ -9,10 +9,65 @@
 #include <chrono>
 using namespace std;
 
-int main()
+void print_usage()
 {
+	const char *usage_string = "Usage: \n"
+							   "Option 1: PuzzleSolver.exe -> Solves empty board\n"
+							   "Option 2: PuzzleSolver.exe -i filename.txt -> Solves the board defined in filename.txt\n";
+	std::cout << usage_string << std::endl;
+}
+
+int main(int argc, char **argv)
+{
+
+	// Parse CLI arguments
+	// Let's assume 2 cases for now:
+	// - case 1: there's no CLI arguments -> empty board
+	// - case 2: the CLI arguments are of the form:
+	//   -i filename.txt
+	// And this filename contains an ascii representation of the board.
+	// Extract filename of initial board position
+	// Load file into board
+	// Check if board is valid
+	// Solve puzzle
+	// Print out result
+
+	std::cout << "CLI arguments: " << argc << std::endl;
+	for (int i = 0; i < argc; i++)
+	{
+		std::cout << argv[i] << std::endl;
+	}
+	// Loading the board
+	Board *bp;
 	Pieces p;
 
+	if (argc < 2)
+	{
+		bp = new Board(11, 5, p.all_pieces);
+	}
+	else if (argc == 3)
+	{
+		if (!(strcmp(argv[1], "-i") == 0))
+		{
+			print_usage();
+			return 0;
+		}
+	}
+	else
+	{
+		print_usage();
+		return 0;
+	}
+
+	// Let's create a reference to bp because that's a bit easier to work with
+	Board &b = *bp;
+
+	std::cout << "Welcome to PuzzleSolver!" << std::endl
+			  << std::endl;
+	std::cout << "Here's the starting board" << std::endl
+			  << std::endl;
+
+	/*
 	for (int i = 0; i < p.all_pieces.size(); i++)
 	{
 		std::cout << "Piece number: " << i;
@@ -23,16 +78,15 @@ int main()
 			print_board(p.all_pieces[i]->get_view(j)->grid_view);
 			std::cout << std::endl;
 		}
-	}
+	}*/
 
-	Board b(11, 5, p.all_pieces);
-	b.put_piece(*p.long_l.get_view(6), 0, 0);
-	b.put_piece(*p.small_triangle.get_view(2), 0, 3);
-	b.put_piece(*p.short_l.get_view(3), 1, 1);
+	// b.put_piece(*p.long_l.get_view(6), 0, 0);
+	// b.put_piece(*p.small_triangle.get_view(2), 0, 3);
+	// b.put_piece(*p.short_l.get_view(3), 1, 1);
 
-	p.long_l.placed = true;
-	p.small_triangle.placed = true;
-	p.short_l.placed = true;
+	// p.long_l.placed = true;
+	// p.small_triangle.placed = true;
+	// p.short_l.placed = true;
 
 	std::cout << "Input sequence: " << std::endl;
 	print_board(b);
@@ -49,6 +103,9 @@ int main()
 	print_board(b);
 
 	std::cout << "Done!" << std::endl;
+
+	// Clean up
+	delete bp;
 
 	return 0;
 }
