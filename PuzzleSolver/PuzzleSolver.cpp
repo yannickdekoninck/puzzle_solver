@@ -12,8 +12,8 @@ using namespace std;
 void print_usage()
 {
 	const char *usage_string = "Usage: \n"
-							   "Option 1: PuzzleSolver.exe -> Solves empty board\n"
-							   "Option 2: PuzzleSolver.exe -i filename.txt -> Solves the board defined in filename.txt\n";
+							   "Option 1: PuzzleSolver.exe \t\t\t-> Solves empty board\n"
+							   "Option 2: PuzzleSolver.exe -i filename.txt \t-> Solves the board defined in filename.txt\n";
 	std::cout << usage_string << std::endl;
 }
 
@@ -31,16 +31,13 @@ int main(int argc, char **argv)
 	// Check if board is valid
 	// Solve puzzle
 	// Print out result
-
-	std::cout << "CLI arguments: " << argc << std::endl;
-	for (int i = 0; i < argc; i++)
-	{
-		std::cout << argv[i] << std::endl;
-	}
 	// Loading the board
+
 	Board *bp;
 	Pieces p;
 
+	std::cout << "Welcome to PuzzleSolver!" << std::endl
+			  << std::endl;
 	if (argc < 2)
 	{
 		bp = new Board(11, 5, p.all_pieces);
@@ -62,8 +59,6 @@ int main(int argc, char **argv)
 	// Let's create a reference to bp because that's a bit easier to work with
 	Board &b = *bp;
 
-	std::cout << "Welcome to PuzzleSolver!" << std::endl
-			  << std::endl;
 	std::cout << "Here's the starting board" << std::endl
 			  << std::endl;
 
