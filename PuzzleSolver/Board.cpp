@@ -2,9 +2,25 @@
 #include "Board.h"
 #include "Utilities.h"
 
+// Static members
+
+int Board::tries = 0;
+
+// Constructor
+
+Board::Board(int width, int heigth, std::vector<Piece *> &pieces, const char *board) : Board(width, heigth, pieces)
+{
+    // copy content of board into our local view
+    for (int i = 0; i < width * heigth; i++)
+    {
+        piece_description[i] = board[i];
+    }
+}
+
+// Methods
+
 bool Board::put_piece(const PieceView &piece_view, int x, int y)
 {
-
     // Check if item can be placed
     ListItem li;
     for (int i = 0; i < piece_view.list_view.item_count(); i++)
@@ -27,7 +43,6 @@ bool Board::put_piece(const PieceView &piece_view, int x, int y)
 
 void Board::remove_piece(const PieceView &piece_view, int x, int y)
 {
-
     // Check if item can be removed
     ListItem li;
     for (int i = 0; i < piece_view.list_view.item_count(); i++)
@@ -92,7 +107,101 @@ void Board::update_open_neighbours(int xmin, int xmax, int ymin, int ymax)
     }
 }
 
-int Board::tries = 0;
+bool Board::validate_board()
+{
+    // This method is not optimized for speed - this only runs once
+
+    // Set all pieces to not placed
+    for (int i = 0; i < pieces.size(); i++)
+    {
+        pieces[i]->placed = false;
+    }
+    // Set all symbols in board that are < A to empty symbol
+    for (int i = 0; i < width * height; i++)
+    {
+        if (piece_description[i] < 'A')
+        {
+            piece_description[i] = empty_symbol;
+        }
+    }
+    // Loop through the pieces
+
+    int placed_items = 0;
+    for (int i = 0; i < pieces.size(); i++)
+    {
+        Piece &p = *pieces[i];
+        std::vector<Coord2> occurences;
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (get_description(x, y) == p.id)
+                {
+                    occurences.push_back(Coord2{x, y});
+                }
+            }
+        }
+        int symbol_occurences = occurences.size();
+        if (symbol_occurences > 0)
+        {
+            // This symbol occurs
+            unsigned int expected_symbol_occurences = p.get_view(0)->list_view.item_count();
+            if (symbol_occurences != expected_symbol_occurences)
+            {
+                // This cannot be valid
+                return false;
+            }
+            // The number of occurences makes sense, that's good!
+            // Let's see if we can place it
+            for (int j = 0; j < symbol_occurences; j++)
+            {
+
+                for (int k = 0; k < p.number_of_views(); k++)
+                {
+                    ListView &lv = p.get_view(k)->list_view;
+                    bool all_match = true;
+                    for (int l = 0; l < lv.item_count(); l++)
+                    {
+                        Coord2 c = lv.get_item(l).coords + occurences[j];
+                        if (get_description(c.x, c.y) != p.id)
+                        {
+                            all_match = false;
+                        }
+                    }
+                    if (all_match)
+                    {
+                        p.placed = true;
+                        placed_items += expected_symbol_occurences;
+                        break;
+                    }
+                }
+                if (p.placed)
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    int empty_symbol_count = 0;
+    for (int i = 0; i < width * height; i++)
+    {
+        if (piece_description[i] == empty_symbol)
+        {
+            empty_symbol_count++;
+        }
+    }
+
+    if ((width * height - placed_items - empty_symbol_count) != 0)
+    {
+        return false;
+    }
+    return true;
+}
+
+//     - count the number of this symbols occurs
+//          should be 0 or the number of items in that piece
+//      - If the number matches, try to fit any of the views
 
 bool Board::solve()
 {
