@@ -55,8 +55,9 @@ int main(int argc, char **argv)
 		const char *filename = argv[2];
 
 		std::string board = load_board_from_file(filename);
-		if (board.size() != width * height){
-			std::cout << "ERROR: Board size is not the expected "<< width << "x" << height << "items.";
+		if (board.size() != width * height)
+		{
+			std::cout << "ERROR: Board size is not the expected " << width << "x" << height << "items.";
 		}
 		bp = new Board(width, height, p.all_pieces, board.c_str());
 		if (bp->validate_board() == false)
@@ -102,6 +103,7 @@ int main(int argc, char **argv)
 	print_board(b);
 	b.update_open_neighbours();
 	auto start = std::chrono::high_resolution_clock::now();
+	b.clear_solutions();
 	b.solve();
 	auto end = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
@@ -109,8 +111,14 @@ int main(int argc, char **argv)
 	std::cout << std::endl;
 	std::cout << "Solved puzzle in " << duration.count() << "ms using " << b.tries << " iterations" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Solution: " << std::endl;
-	print_board(b);
+	std::cout << "Found " << b.solution_count() << " solutions." << std::endl;
+	for (unsigned int i = 0; i < b.solution_count(); i++)
+	{
+		std::cout << "Solution: " << i << ":" << std::endl;
+		GridView *solution = b.get_solution(i);
+		print_board(*solution);
+		std::cout << std::endl;
+	}
 
 	std::cout << "Done!" << std::endl;
 
