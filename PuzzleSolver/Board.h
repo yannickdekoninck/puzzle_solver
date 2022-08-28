@@ -17,6 +17,15 @@ public:
 
     bool solve();
     bool validate_board();
+    inline void clear_solutions() { solutions.clear(); }
+    inline unsigned int solution_count() const { return solutions.size(); }
+    inline GridView *get_solution(unsigned int id) const
+    {
+        if (id < solution_count())
+        {
+            return (GridView *)(&(solutions[id]));
+        }
+    }
 
     static int tries;
 
@@ -25,6 +34,7 @@ private:
     std::vector<Piece *> pieces;
     int lowest_open_neighbour_count;
     Coord2 lowest_open_neighbour_location;
+    std::vector<GridView> solutions;
 
     // Methods
 };

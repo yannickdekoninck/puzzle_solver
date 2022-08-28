@@ -162,10 +162,12 @@ bool Board::validate_board()
                     bool all_match = true;
                     for (int l = 0; l < lv.item_count(); l++)
                     {
-                        Coord2 c = lv.get_item(l).coords + occurences[j];
+                        Coord2 c = lv.get_item(l).coords + occurences[j] - lv.get_item(0).coords;
+
                         if (get_description(c.x, c.y) != p.id)
                         {
                             all_match = false;
+                            break;
                         }
                     }
                     if (all_match)
@@ -246,14 +248,26 @@ bool Board::solve()
                         }
                         if (all_placed)
                         {
+                            // Solved the board!
+                            bool solution_exists = false;
+                            for (int m = 0; m < solutions.size(); m++)
+                            {
+                                if (solutions[m].equals(*this))
+                                {
+                                    solution_exists = true;
+                                    break;
+                                }
+                            }
+                            if (solution_exists == false)
+                            {
+                                solutions.push_back((GridView) * this);
+                            }
                             return true;
                         }
 
                         //  Check if we can solve the board
-                        if (solve())
-                        {
-                            return true;
-                        }
+                        solve();
+
                         // We couldn't solve the board with this placement
                         // Romve the pieceview again
                         remove_piece(pv, placement.x, placement.y);
