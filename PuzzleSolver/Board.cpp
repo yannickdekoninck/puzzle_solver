@@ -262,11 +262,14 @@ bool Board::solve()
                             {
                                 solutions.push_back((GridView) * this);
                             }
-                            return true;
+                            // return true;
                         }
-
-                        //  Check if we can solve the board
-                        solve();
+                        else
+                        {
+                            // We're not done, continue
+                            //  Check if we can solve the board
+                            solve();
+                        }
 
                         // We couldn't solve the board with this placement
                         // Romve the pieceview again
