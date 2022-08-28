@@ -35,12 +35,14 @@ int main(int argc, char **argv)
 
 	Board *bp;
 	Pieces p;
+	int width = 11;
+	int height = 5;
 
 	std::cout << "Welcome to PuzzleSolver!" << std::endl
 			  << std::endl;
 	if (argc < 2)
 	{
-		bp = new Board(11, 5, p.all_pieces);
+		bp = new Board(width, height, p.all_pieces);
 	}
 	else if (argc == 3)
 	{
@@ -50,8 +52,14 @@ int main(int argc, char **argv)
 			return 0;
 		}
 		// Load file
-		bp = load_board_from_file(argv[2]);
-		if (bp == nullptr)
+		const char *filename = argv[2];
+
+		std::string board = load_board_from_file(filename);
+		if (board.size() != width * height){
+			std::cout << "ERROR: Board size is not the expected "<< width << "x" << height << "items.";
+		}
+		bp = new Board(width, height, p.all_pieces, board.c_str());
+		if (bp->validate_board() == false)
 		{
 			print_usage();
 			return 0;
