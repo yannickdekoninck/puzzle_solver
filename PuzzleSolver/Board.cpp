@@ -141,11 +141,11 @@ bool Board::validate_board()
                 }
             }
         }
-        int symbol_occurences = occurences.size();
+        unsigned int symbol_occurences = (unsigned int)occurences.size();
         if (symbol_occurences > 0)
         {
             // This symbol occurs
-            unsigned int expected_symbol_occurences = p.get_view(0)->list_view.item_count();
+            unsigned int expected_symbol_occurences = (unsigned int)p.get_view(0)->list_view.item_count();
             if (symbol_occurences != expected_symbol_occurences)
             {
                 // This cannot be valid
@@ -153,7 +153,7 @@ bool Board::validate_board()
             }
             // The number of occurences makes sense, that's good!
             // Let's see if we can place it
-            for (int j = 0; j < symbol_occurences; j++)
+            for (unsigned int j = 0; j < symbol_occurences; j++)
             {
 
                 for (int k = 0; k < p.number_of_views(); k++)

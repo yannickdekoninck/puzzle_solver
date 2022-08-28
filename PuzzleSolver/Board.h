@@ -18,13 +18,14 @@ public:
     bool solve();
     bool validate_board();
     inline void clear_solutions() { solutions.clear(); }
-    inline unsigned int solution_count() const { return solutions.size(); }
+    inline unsigned int solution_count() const { return (unsigned int)solutions.size(); }
     inline GridView *get_solution(unsigned int id) const
     {
         if (id < solution_count())
         {
             return (GridView *)(&(solutions[id]));
         }
+        return nullptr;
     }
 
     static int tries;
