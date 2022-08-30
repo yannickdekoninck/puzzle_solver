@@ -111,9 +111,14 @@ void PuzzleSolverApp::run()
 	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 	std::cout << std::endl;
 	std::cout << std::endl;
-	std::cout << "Solved puzzle in " << duration.count() << "ms using " << board->tries << " iterations" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Found " << board->solution_count() << " solutions." << std::endl;
+	for (unsigned int i = 0; i < board->solution_count(); i++)
+	{
+		std::cout << "Solution #" << (i + 1) << std::endl;
+		print_board(*board->get_solution(i));
+		std::cout << std::endl;
+	}
+	std::cout << "Found " << board->solution_count() << " solutions in " << duration.count() << "ms using " << board->tries << " iterations" << std::endl;
 }
 
 int main(int argc, char **argv)
