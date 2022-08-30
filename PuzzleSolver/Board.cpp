@@ -262,13 +262,19 @@ bool Board::solve()
                             {
                                 solutions.push_back((GridView) * this);
                             }
-                            // return true;
+                            if (solutions.size() >= max_solutions)
+                            {
+                                return true;
+                            }
                         }
                         else
                         {
                             // We're not done, continue
                             //  Check if we can solve the board
-                            solve();
+                            if (solve())
+                            {
+                                return true;
+                            }
                         }
 
                         // We couldn't solve the board with this placement

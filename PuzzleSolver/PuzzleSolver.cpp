@@ -103,6 +103,7 @@ void PuzzleSolverApp::run()
 	std::cout << "Input sequence: " << std::endl;
 	print_board(*board);
 	board->update_open_neighbours();
+	board->max_solutions = max_solutions;
 	auto start = std::chrono::high_resolution_clock::now();
 	board->clear_solutions();
 	board->solve();
