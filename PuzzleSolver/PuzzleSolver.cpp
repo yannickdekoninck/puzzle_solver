@@ -9,6 +9,15 @@
 #include <chrono>
 using namespace std;
 
+const char *logo =
+	"  _____               _                  _                \n"
+	" |  __ \\             | |                | |               \n"
+	" | |__) |   _ _______| | ___   ___  ___ | |_   _____ _ __ \n"
+	" |  ___/ | | |_  /_  / |/ _ \\ / __|/ _ \\| \\ \\ / / _ \\ '__|\n"
+	" | |   | |_| |/ / / /| |  __/ \\__ \\ (_) | |\\ V /  __/ |   \n"
+	" |_|    \\__,_/___/___|_|\\___| |___/\\___/|_| \\_/ \\___|_|   \n"
+	"                                                          \n";
+
 void print_usage()
 {
 	const char *usage_string = "Usage: \n"
@@ -98,7 +107,9 @@ bool PuzzleSolverApp::initialized()
 
 void PuzzleSolverApp::run()
 {
-	std::cout << "Here's the starting board" << std::endl
+	std::cout << logo << std::endl;
+	std::cout << "(C) Yannick De Koninck 2022" << std::endl
+			  << std::endl
 			  << std::endl;
 	std::cout << "Input sequence: " << std::endl;
 	print_board(*board);
