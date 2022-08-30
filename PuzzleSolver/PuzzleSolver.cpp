@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 		const char *filename = argv[2];
 
 		std::string board = load_board_from_file(filename);
-		if (board.size() != width * height)
+		if (board.size() != (size_t)(width * height))
 		{
 			std::cout << "ERROR: Board size is not the expected " << width << "x" << height << "items.";
 		}
