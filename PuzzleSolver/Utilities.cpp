@@ -103,14 +103,12 @@ std::string load_board_from_file(const char *filename)
     file.close();
 
     std::string file_content = buffer.str();
-    std::cout << file_content << std::endl;
 
     // Remove spaces and newlines
     auto removed = std::remove(file_content.begin(), file_content.end(), ' ');
     file_content.erase(removed, file_content.end());
     removed = std::remove(file_content.begin(), file_content.end(), '\n');
     file_content.erase(removed, file_content.end());
-    std::cout << file_content << std::endl;
 
     return file_content;
 }
