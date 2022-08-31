@@ -5,6 +5,15 @@
 struct Coord2
 {
     int x, y;
+
+    Coord2 operator+(const Coord2 &other) const
+    {
+        return Coord2{x + other.x, y + other.y};
+    }
+    Coord2 operator-(const Coord2 &other) const
+    {
+        return Coord2{x - other.x, y - other.y};
+    }
 };
 
 struct ListItem

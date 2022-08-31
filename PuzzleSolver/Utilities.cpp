@@ -1,4 +1,7 @@
+#include <fstream>
 #include <iostream>
+#include <sstream>
+#include <algorithm>
 #include <map>
 #include "common.h"
 #include "Utilities.h"
@@ -72,4 +75,40 @@ void print_board(const GridView &grid_view)
         std::cout << border_symbol;
     }
     std::cout << std::endl;
+}
+
+/*
+    load_board_from_file
+
+    Load a board from file defined by path in filename
+    Returns nullptr if board could not be loaded
+    Caller is responsible for freeing created Board
+
+*/
+
+std::string load_board_from_file(const char *filename)
+{
+    // Load file to string
+    std::ifstream file;
+    file.open(filename);
+
+    // Check if the file opened successfully
+    if (!filename)
+    {
+        return std::string();
+    }
+
+    std::stringstream buffer;
+    buffer << file.rdbuf();
+    file.close();
+
+    std::string file_content = buffer.str();
+
+    // Remove spaces and newlines
+    auto removed = std::remove(file_content.begin(), file_content.end(), ' ');
+    file_content.erase(removed, file_content.end());
+    removed = std::remove(file_content.begin(), file_content.end(), '\n');
+    file_content.erase(removed, file_content.end());
+
+    return file_content;
 }
